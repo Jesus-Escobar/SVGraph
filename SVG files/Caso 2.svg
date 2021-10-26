@@ -1,0 +1,92 @@
+<?xml version='1.0'  encoding='UTF-8' standalone='no'?>
+<!DOCTYPE svg PUBLIC '-//W3C//DTD SVG 1.1//EN'
+	'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'>
+<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'
+version='1.1' width='301' height='301' viewBox='0 0 301 301'>
+<style type='text/css'>
+	text {
+		font-family: Helvetica;
+		fill: #000;
+		font-size: 14;
+		text-anchor: middle;
+		font-weight: bold;
+	}
+	.lora {
+		stroke: #000;
+		stroke-width: 1px;
+	}
+	.ble {
+		fill: #36f;
+		stroke: #000;
+		stroke-width: 1px;
+	}
+	.arrow {
+		fill: none;
+		stroke-width: 1px;
+	}
+</style>
+<defs>
+	<radialGradient id='rf'>
+		<stop offset='0.3' stop-color='#429' />
+			<stop offset='0.4' stop-color='#35a' />
+			<stop offset='0.5' stop-color='#27b' />
+			<stop offset='0.6' stop-color='#19c' />
+			<stop offset='0.7' stop-color='#0bd' />
+			<stop offset='0.8' stop-color='#0ce' />
+			<stop offset='0.9' stop-color='#0ef' />
+			<stop offset='1.0' stop-color='#fff' />
+	</radialGradient>
+	<radialGradient id='m3d'>
+			<stop offset='0.1' stop-color='#990' />
+			<stop offset='0.4' stop-color='#aa0' />
+			<stop offset='0.6' stop-color='#bb0' />
+			<stop offset='0.7' stop-color='#cc0' />
+			<stop offset='0.8' stop-color='#dd0' />
+			<stop offset='0.9' stop-color='#ee0' />
+			<stop offset='1.0' stop-color='#ff0' />
+	</radialGradient>
+	<pattern id='GRID' width='50' height='50' patternUnits='userSpaceOnUse'>
+		<path d='M 50 0 L 0 0 0 50' stroke-dasharray='2 3' fill='none' stroke='gray' stroke-width='1px' opacity='50%' />
+	</pattern>
+</defs>
+<!-- GRID -->
+<rect x='0' y='0' width='100%' height='100%' fill='url(#GRID)' />
+<!-- RF signal BLE-->
+<!-- RF signal LoRa -->
+<!-- ARROWS LORA SIGNAL -->
+<path class='arrow' d='M 130 100 L 170 100' stroke='#000'  />
+<path class='arrow' d='M 121.213 121.213 L 178.787 178.787' stroke='#000'  />
+<path class='arrow' d='M 200 130 L 200 170' stroke='#000'  />
+<!-- ARROWS BLE-LORA SIGNAL -->
+<path class='arrow' d='M 124.41 148.82 L 113.416 126.833' stroke='#000'  />
+<path class='arrow' d='M 103.416 130.833 l 8 -4 l -8 -4' stroke='#000' transform=' rotate(243.435 113.416 126.833)' />
+<path class='arrow' d='M 139.491 151.865 L 177.222 119.524' stroke='#f22222'  />
+<path class='arrow' d='M 167.222 123.524 l 8 -4 l -8 -4' stroke='#f22222' transform=' rotate(-40.6013 177.222 119.524)' />
+<path class='arrow' d='M 140.853 166.202 L 173.953 185.116' stroke='#f22222'  />
+<path class='arrow' d='M 163.953 189.116 l 8 -4 l -8 -4' stroke='#f22222' transform=' rotate(29.7449 173.953 185.116)' />
+<path class='arrow' d='M 141.998 49.6028 L 119.206 76.9534' stroke='#000'  />
+<path class='arrow' d='M 109.206 80.9534 l 8 -4 l -8 -4' stroke='#000' transform=' rotate(129.806 119.206 76.9534)' />
+<path class='arrow' d='M 158.002 49.6028 L 180.794 76.9534' stroke='#f22222'  />
+<path class='arrow' d='M 170.794 80.9534 l 8 -4 l -8 -4' stroke='#f22222' transform=' rotate(50.1944 180.794 76.9534)' />
+<!-- ARROWS BLE SIGNAL -->
+<g id='node_1'>
+	<ellipse class='lora' rx='30' ry='30' cx='100' cy='100' fill='url(#m3d)' />
+	<text x='100' y='105' >1</text>
+</g>
+<g id='node_3'>
+	<ellipse class='lora' rx='30' ry='30' cx='200' cy='100' fill='url(#m3d)' />
+	<text x='200' y='105' >3</text>
+</g>
+<g id='node_5'>
+	<ellipse class='lora' rx='30' ry='30' cx='200' cy='200' fill='url(#m3d)' />
+	<text x='200' y='205' >5</text>
+</g>
+<g id='node_2'>
+	<rect class='ble' x='117.5' y='147.5' width='25' height='25' rx='5' ry='5' />
+	<text x='130' y='165' >2</text>
+</g>
+<g id='node_4'>
+	<rect class='ble' x='137.5' y='27.5' width='25' height='25' rx='5' ry='5' />
+	<text x='150' y='45' >4</text>
+</g>
+</svg>
