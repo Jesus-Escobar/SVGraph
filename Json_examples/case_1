@@ -1,0 +1,46 @@
+/* Case 1:
+  More than 3 BLE connections within range.
+  espressif recommends a maximum of 3 BLE connections, usually it depends on the
+  specific application scenario. In general it can communicate stably with 3
+  devices connected.
+  There is no maximum BLE connections, when there are multiples devices
+  conected, the RF us time-multiplexed, thus requiring the designer to ensure
+  that each device is not overly occupied, causing other devices to timeout and
+  disconnect.
+
+  Source:
+  https://docs.espressif.com/projects/espressif-esp-faq/en/latest/software-
+  framework/ble-bt.html?highlight=BlE#when-using-esp32-device-as-the-server-
+  of-bluetooth-le-how-many-client-devices-can-be-connected
+
+*/
+({
+    "version" : "1.1",
+    "design_key" : [
+        "LoRa-fill",
+        "BLE-fill",
+        "Border",
+        "LoRa-range",
+        "BLE-range",
+    ],
+    "design" :
+    {
+        "LoRa-fill" : "#000",
+        "BLE-fill"  : "#36f",
+        "Border"    : 1,
+        "LoRa-range": 2.5,
+        "BLE-range": 1,
+    },
+    "LoRa-nodes" : ["1", "3", "5"],
+    "BLE-nodes"  : ["2", "4", "6", "8"],
+    "RF-on"      : ["8"],
+    "pos" :{
+        "1"     : [1, 1],
+        "2"     : [0.4, 1.6],
+        "3"     : [3, 1],
+        "4"     : [1.6, 0.4],
+        "5"     : [2, 3],
+        "6"     : [0.4, 0.4],
+        "8"     : [1.6, 1.6],
+    },
+})

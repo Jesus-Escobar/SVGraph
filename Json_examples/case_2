@@ -1,0 +1,38 @@
+/* Case_2:
+  More than 1 master connection, this is redundant and will only affect the
+  over all network efficiency, as a master device will take decisions for each
+  of its slaves, this would only multiply the processing efforts of the network
+
+  This can be solved by decision making, either to stop looking for connections
+  while connected to a master node, choosing the connection that returns the
+  higher RSSI, or by taking into consideration the number of nodes connected to
+  each master and choosing the one with more spaces available.
+*/
+({
+    "version" : "1.1",
+    "design_key" : [
+        "LoRa-fill",
+        "BLE-fill",
+        "Border",
+        "LoRa-range",
+        "BLE-range",
+    ],
+    "design" :
+    {
+        "LoRa-fill" : "#000",
+        "BLE-fill"  : "#36f",
+        "Border"    : 1,
+        "LoRa-range": 2.5,
+        "BLE-range": 1,
+    },
+    "LoRa-nodes" : ["1", "3", "5"],
+    "BLE-nodes"  : ["2", "4"],
+    "RF-on"      : [],
+    "pos" :{
+        "1"     : [1, 1],
+        "2"     : [1.3, 1.6],
+        "3"     : [2, 1],
+        "4"     : [1.5, 0.4],
+        "5"     : [2, 2],
+    },
+})

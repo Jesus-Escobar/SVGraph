@@ -87,8 +87,8 @@ int main() {
     float   LEN = 25;
     float   LoRa_range = 2.0;
     float   BLE_range = 1.0;
-    float   width = 1000;
-    float   height = 1000;
+    float   width = 1;
+    float   height = 1;
 
     int       ns = 0; // nodes size for edge finding
     int       lns = 0; // nodes size for edge finding
@@ -155,6 +155,12 @@ int main() {
         PosPair pos = make_pair(arr[0].asFloat(), arr[1].asFloat());
         nodepos[key] = pos;
         cout << pos.first << "," << pos.second << ")" << endl;
+        if(pos.first > width){
+            width = pos.first;
+        }
+        if(pos.second > height){
+            height = pos.second;
+        }
     }
 
     for (const auto &node: root["BLE-nodes"]) {
@@ -165,7 +171,16 @@ int main() {
         PosPair pos = make_pair(arr[0].asFloat(), arr[1].asFloat());
         nodepos[key] = pos;
         cout << pos.first << "," << pos.second << ")" << endl;
+        if(pos.first > width){
+            width = pos.first;
+        }
+        if(pos.second > height){
+            height = pos.second;
+        }
     }
+
+    height = (height)*100+100;
+    width = (width)*100+100;
 
     ostringstream svg;
     const string version = root["version"].asString();
@@ -227,7 +242,7 @@ int main() {
         svg << "<g id='node_" << node << "_range'>" << endl;
         svg << "\t<ellipse rx='" << BLE_range*DIST << "' ry='"
         << BLE_range*DIST << "' cx='" << x*DIST << "' cy='" << y*DIST
-        << "' fill='url(#rf)' opacity='80%' stroke='none' />" << endl;
+        << "' fill='url(#rf)' opacity='50%' stroke='none' />" << endl;
         svg << "\t<ellipse rx='" << BLE_range*DIST << "' ry='"
         << BLE_range*DIST << "' cx='" << x*DIST << "' cy='" << y*DIST
         << "' fill='none' stroke-dasharray='2 3' stroke='gray' stroke-width='1px' opacity='50%' />" << endl;
@@ -242,7 +257,7 @@ int main() {
         svg << "<g id='node_" << node << "_range'>" << endl;
         svg << "\t<ellipse rx='" << LoRa_range*DIST << "' ry='"
         << LoRa_range*DIST << "' cx='" << x*DIST << "' cy='" << y*DIST
-        << "' fill='url(#rf)' opacity='80%' stroke='none' />" << endl;
+        << "' fill='url(#rf)' opacity='50%' stroke='none' />" << endl;
         svg << "\t<ellipse rx='" << LoRa_range*DIST << "' ry='"
         << LoRa_range*DIST << "' cx='" << x*DIST << "' cy='" << y*DIST
         << "' fill='none' stroke-dasharray='2 3' stroke='gray' stroke-width='1px' opacity='50%' />" << endl;
