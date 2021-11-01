@@ -35,7 +35,7 @@ string GraphJSON = R"({
     },
     "LoRa-nodes" : ["2", "3", "5", "8", "9", "14"],
     "BLE-nodes"  : ["1", "4", "6", "7","10"],
-    "RF-on"      : [1, 2, 3],
+    "RF-on"      : [6],
     "pos" :{
         "1"     : [1, 1],
         "2"     : [1, 2],
@@ -79,7 +79,7 @@ int main() {
     string  arrow_fill = "none";
     string  stroke = "#000";
     float   arrow_width = 1;
-    float   lora_width = 1;
+    float   lora_width = 0;
     float   ble_width = 1;
     string  font = "Helvetica";
     float   font_size = 14;
@@ -106,10 +106,14 @@ int main() {
         } else if(!key.compare("BLE-fill")){
             ble_fill = val.asString();
             cout << ble_fill << endl;
-        } else if(!key.compare("Border")){
+        }
+        /*
+        else if(!key.compare("Border")){
             lora_width = val.asFloat();
             cout << "\t" << lora_width << endl;
-        } else if(!key.compare("LoRa-range")){
+        }
+        */
+        else if(!key.compare("LoRa-range")){
             LoRa_range = val.asFloat();
             cout << LoRa_range << endl;
         } else if(!key.compare("BLE-range")){
@@ -179,8 +183,11 @@ int main() {
         }
     }
 
-    height = (height)*100+100;
-    width = (width)*100+100;
+    height = round(height);
+    width = round(width);
+
+    height = (height)*100+101; // issue-1 %50
+    width = (width)*100+101;
 
     ostringstream svg;
     const string version = root["version"].asString();
@@ -252,7 +259,7 @@ int main() {
     svg << "<!-- RF signal LoRa -->" << endl;
       for (const auto &node: l_nodes) {
         auto a = node;
-        if (notNode(rf_nodes,a)) continue;
+        if (notNode(rf_nodes, a)) continue;
         auto [x, y] = nodepos[node];
         svg << "<g id='node_" << node << "_range'>" << endl;
         svg << "\t<ellipse rx='" << LoRa_range*DIST << "' ry='"
