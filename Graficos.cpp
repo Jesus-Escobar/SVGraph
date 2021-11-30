@@ -49,6 +49,15 @@ string GraphJSON = R"({
         "10"    : [3.5, 2.5],
         "14"    : [2, 1],
     },
+    "route" : [
+        [1, 6],
+        [2, 3],
+        [15,8]
+    ],
+    "Temperature"   : [1, 14],
+    "Humidity"      : [1, 4],
+    "Proximity"     : [1, 6],
+    "Keypad"        : [1, 7, 9]
 })";
 
 void makeJSON(Value &root, string &text) {
@@ -67,6 +76,10 @@ int main() {
     Nodes  l_nodes;
     Nodes  b_nodes;
     Nodes  rf_nodes;
+    Nodes  temp;
+    Nodes  hdty;
+    Nodes  prox;
+    Nodes  keys;
     Edges  edges;
     PosMap nodepos;
     Value  root;
@@ -85,6 +98,7 @@ int main() {
     float   font_size = 14;
     float   RAD = 30;
     float   LEN = 25;
+    float   SENSERAD = 2.5;
     float   LoRa_range = 2.0;
     float   BLE_range = 1.0;
     float   width = 1;
@@ -144,6 +158,59 @@ int main() {
         rf_nodes.push_back(node);
         cout << node << " ";
     }
+
+    cout << endl <<"Routes: \n";
+    for (const auto &arr: root["route"]) {
+        auto a = arr[0].asString();
+        auto b = arr[1].asString();
+        if (notNode(b_nodes, a) && notNode(l_nodes, a)) {
+            cout << "\tSender node not a node " << a << endl;
+            continue;
+        }
+        if (notNode(b_nodes, b) && notNode(l_nodes, b)) {
+            cout << "\tReceiver node not a node " << b << endl;
+            continue;
+        }
+        cout << "\t" << arr[0].asString() << "-->" << arr[1].asString() << endl;
+    }
+
+    cout << endl << "Sensors: " << endl;
+    for (const auto &s: root["Temperature"]) {
+        auto a = s.asString();
+        if (notNode(b_nodes, a)) {
+            cout << "\tNode " << a << " not a slave node " << endl;
+            continue;
+        }
+        temp.push_back(a);
+    }
+
+    for (const auto &s: root["Humidity"]) {
+        auto a = s.asString();
+        if (notNode(b_nodes, a)) {
+            cout << "\tNode " << a << " not a slave node " << endl;
+            continue;
+        }
+        hdty.push_back(a);
+    }
+
+    for (const auto &s: root["Proximity"]) {
+        auto a = s.asString();
+        if (notNode(b_nodes, a)) {
+            cout << "\tNode " << a << " not a slave node " << endl;
+            continue;
+        }
+        prox.push_back(a);
+    }
+
+    for (const auto &s: root["Keypad"]) {
+        auto a = s.asString();
+        if (notNode(b_nodes, a)) {
+            cout << "\tNode " << a << " not a slave node " << endl;
+            continue;
+        }
+        keys.push_back(a);
+    }
+
 
     lns = l_nodes.size();
     bns = b_nodes.size();
@@ -209,6 +276,9 @@ int main() {
 
     svg << "\t.ble {\n\t\tfill: " << ble_fill << ";\n\t\tstroke: " << stroke
     << ";\n\t\tstroke-width: " << ble_width << "px;\n\t}" << endl;
+
+    svg << "\t.sensor {\n\t\tstroke: " << stroke << ";\n\t\tstroke-width: "
+    << lora_width << "px;\n\t}" << endl;
 
     svg << "\t.arrow {\n\t\tfill: none;\n\t\tstroke-width: " << arrow_width
     << "px;\n\t}\n</style>\n<defs>" << endl;
@@ -305,10 +375,6 @@ int main() {
                 }
                 svg << "<path class='arrow' d='M " << x3 << " " << y3 << " L "
                 << x4 << " " << y4 << "' stroke='" << stroke << "'  />" << endl;
-                /*
-                svg << "<path class='arrow' d='M " << x4-10 << " " << y4+4 << " l 8 -4 l -8 -4' stroke='" << stroke
-                << "' transform=' rotate(" << alfa*57.2958 << " " << x4 << " " << y4 << ")'"<< " />" << endl;
-                */
             }
         }
     }
@@ -403,6 +469,89 @@ int main() {
         }
     }
 
+    svg << "<!-- Sensor paths -->" << endl;
+
+    for(int i = 0; i<bns; i++){
+        auto a = b_nodes[i];
+        auto apos = root["pos"][a];
+        auto [x, y] = nodepos[a];
+        int senseNum = 0;
+        float xpos;
+        float ypos;
+        float xendpos;
+        float yendpos;
+        x = x*DIST;
+        y = y*DIST;
+        xpos = x-LEN/2;
+        ypos = y-LEN/3;
+        xendpos = xpos-LEN/2;
+        yendpos = ypos;
+        if (notNode(b_nodes,a)) continue;
+        if (!notNode(temp,a)){
+            svg << "<path class='arrow' d='M " << xpos << " " << ypos << " L "
+            << xendpos << " " << yendpos << "' stroke='#099e13'  />" << endl;
+            svg << "\t<circle class='sensor' " << "cx='" << xendpos << "' cy='"
+            << yendpos << "' r='" << SENSERAD << "' fill='#099e13' />" << endl;
+            senseNum++;
+        }
+        if (notNode(hdty,a)){
+            if(senseNum == 1){
+                xpos = x-LEN/2;
+                ypos = y+LEN/3;
+                xendpos = xpos-LEN/2;
+                yendpos = ypos;
+            }
+            svg << "<path class='arrow' d='M " << xpos << " " << ypos << " L "
+            << xendpos << " " << yendpos << "' stroke='#11099e'  />" << endl;
+            svg << "\t<circle class='sensor' " << "cx='" << xendpos << "' cy='"
+            << yendpos << "' r='" << SENSERAD << "' fill='#11099e' />" << endl;
+            senseNum++;
+        }
+        if (notNode(prox,a)){
+            if(senseNum == 1){
+                xpos = x-LEN/2;
+                ypos = y+LEN/3;
+                xendpos = xpos-LEN/2;
+                yendpos = ypos;
+            } else if(senseNum == 2){
+                xpos = x+LEN/2;
+                ypos = y-LEN/3;
+                xendpos = xpos+LEN/2;
+                yendpos = ypos;
+            }
+            svg << "<path class='arrow' d='M " << xpos << " " << ypos << " L "
+            << xendpos << " " << yendpos << "' stroke='#bf0ffa'  />" << endl;
+            svg << "\t<circle class='sensor' " << "cx='" << xendpos << "' cy='"
+            << yendpos << "' r='" << SENSERAD << "' fill='#bf0ffa' />" << endl;
+            senseNum++;
+        }
+        if (notNode(keys,a)){
+            if(senseNum == 1){
+                xpos = x-LEN/2;
+                ypos = y+LEN/3;
+                xendpos = xpos-LEN/2;
+                yendpos = ypos;
+            } else if(senseNum == 2){
+                xpos = x+LEN/2;
+                ypos = y-LEN/3;
+                xendpos = xpos+LEN/2;
+                yendpos = ypos;
+            } else if(senseNum == 3){
+                xpos = x+LEN/2;
+                ypos = y+LEN/3;
+                xendpos = xpos+LEN/2;
+                yendpos = ypos;
+            }
+            svg << "<path class='arrow' d='M " << xpos << " " << ypos << " L "
+            << xendpos << " " << yendpos << "' stroke='#fbff12'  />" << endl;
+            svg << "\t<circle class='sensor' " << "cx='" << xendpos << "' cy='"
+            << yendpos << "' r='" << SENSERAD << "' fill='#fbff12' />" << endl;
+            senseNum++;
+        }
+    }
+
+    svg << "<!-- LoRa nodes -->" << endl;
+
     for (const auto &node: l_nodes) {
         auto [x, y] = nodepos[node];
         svg << "<g id='node_" << node << "'>" << endl;
@@ -412,6 +561,8 @@ int main() {
         << node << "</text>" << endl;
         svg << "</g>" << endl;
     }
+
+    svg << "<!-- BLE nodes -->" << endl;
 
     for (const auto &node: b_nodes) {
         auto [x, y] = nodepos[node];
