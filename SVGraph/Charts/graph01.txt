@@ -1,0 +1,6 @@
+range l6 b2
+ln 2 [2,3] prox
+bn 7 [1,3] hdty keys
+BN 3 [3,3] temp hdty prox
+LN 4 [1,1] keys
+bn 1 [2,2] prox
