@@ -1,5 +1,9 @@
 # SVGraph
-Node graphs for mesh IoT network
+Node graphs for mesh IoT network. This proyect was made to quickly design and create graphs for my master's degree thesis. The idea was sugested by my 
+thesis advisor. The development of this library started in mid September 2021, the first working version was uploaded October 21st 2021. Since then minor modifications were made to improove graphic stetics and show more information in a single graph. 
+In January 6 2022 version 1.2 was released, this had mayor modifications to make possible for the project to be used as a command line in windows/MacOS/Linux prompt and terminal. 
+
+This proyect is usefull in showing graphically a mesh network, it includes some limitations that I included on my network, but it can be easily modified to be used for your specific needs.
 
 ## INSTALATION
 Download MINGW latest version from https://github.com/brechtsanders/winlibs_mingw/releases
@@ -61,4 +65,26 @@ This .txt file will generate the following .json file:
 "Keypad"      : [ "7", "4",  ]
 }
 ```
+Which in turn it will generate the following .svg image:
 
+![image](https://user-images.githubusercontent.com/80430510/148697666-060bebe1-7f6b-4c55-b011-a10d82b3b344.png)
+
+To use the command line for this just acces the folder containing the .exe file and drop your .txt or .json files in it to be processed by the application. The command is as follows:
+* SVGraph.exe inputname outputname
+* ./SVGraph inputname outputname
+
+The first argument would be the application name (SVGraph), the second argument (inputname) would be the name of the file to be read, and the third argument (outputname) would be the name you want on the generated output files.
+If you inlcude only the first argument the default name the application will look for is 'graph01', in case you only wrote the first and second arguments, the output files will be called as the input file with their respective extension names.
+
+### Contributing
+
+If you want to contribute to this project:
+
+* Report bugs and errors
+* Ask for enhancements
+* Create issues and pull requests
+* Tell others about this library
+* Contribute new protocols
+
+### Credits
+This library is written by Jesús Escobar Mendoza as a tool for making diagrams quickly and with the same format. The idea to develop this library was given by Alberto Pacheco González his dissertation advisor.
