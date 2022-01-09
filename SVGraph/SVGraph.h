@@ -101,7 +101,7 @@ class SVGraph {
 
     void parse_graph(TextLines lines) {
         regex   range(R"((range|RANGE)\s+[l|L]+([\d\.])\s+[b|B]+([\d\.]))");
-        regex   tokens(R"((bn|BN|ln|LN)\s+(\d)\s+(\[[\d.]+,[\d.]+\]))"); //.7.8 first-clause: id. info [dur]
+        regex   tokens(R"((bn|BN|ln|LN)\s+([\d]+)\s+(\[[\d.]+,[\d.]+\]))"); //.7.8 first-clause: id. info [dur]
         regex   sensor(R"((temp|hdty|prox|keys|TEMP|HDTY|PROX|KEYS))"); //.8 second-clause: params
         smatch  matches;
         string  lra = "3";
