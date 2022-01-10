@@ -1,9 +1,14 @@
 # SVGraph
-Node graphs for mesh IoT network. This proyect was made to quickly design and create graphs for my master's degree thesis. The idea was sugested by my 
-thesis advisor. The development of this library started in mid September 2021, the first working version was uploaded October 21st 2021. Since then minor modifications were made to improove graphic stetics and show more information in a single graph. 
+C++ API to create node graphs (DAGs) for IoT peer-to-peer networks. 
+
+This proyect was made to ease design and creation of directed acycled graphs (DAGs) for my master's degree project.
+
+The original ideaof using SVG, JSON & Regular expressions was sugested by my thesis advisor M.C. Alberto Pacheco. 
+
+The development of this library started in mid September 2021, the first working version was uploaded October 21st 2021. Since then minor modifications were made to improove graphic stetics and show more information in a single graph. 
 In January 6 2022 version 1.2 was released, this had mayor modifications to make possible for the project to be used as a command line in windows/MacOS/Linux prompt and terminal. 
 
-This proyect is usefull in showing graphically a mesh network, it includes some limitations that I included on my network, but it can be easily modified to be used for your specific needs.
+This proyect is usefull in showing graphically different test scenarios of mesh networks. It includes some limitations that I included on my network, but it can be easily modified to be used for your specific needs.
 
 ## INSTALATION
 Download MINGW latest version from https://github.com/brechtsanders/winlibs_mingw/releases
