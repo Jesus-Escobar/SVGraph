@@ -2,14 +2,16 @@
   SVGraph.h
   Autor (15/12/2021):
   Jesús Escobar Mendoza jjesus-escobar@hotmail.com
-
-  @TODO:
-    -Add routes
-    -Add function to each node
+*/
+/***********************************************************************************************************************************
+  TODO:
+    -Add routes (Highlight shortest path from node to node)
+    -Add faults (Crossout and disable node)
+    -Correctly define .cpp and .h files (.h declarations, .cpp definitions)
+    -Add function to each node 
     -Add labels to nodes as comments (On/Off comments)
     -Add interactive range (appear/disappear when clicked)
-
-*/
+***********************************************************************************************************************************/
 
 #ifndef SVGRAPH_H_
 #define SVGRAPH_H_
@@ -128,6 +130,10 @@ class SVGraph {
 "Proximity"   : [ #P ],
 "Keypad"      : [ #K ]
 })";
+/***********************************************************************************************************************************
+TODO: Add fault to any node ' "Fault"       : [ #F ] ',
+    This should cross out the node, it should not generate any arrows to or from the node, it should show its range in gray.
+***********************************************************************************************************************************/
 
         for(auto &line : lines) {
                  auto x = line.find("]");
@@ -197,7 +203,9 @@ class SVGraph {
                 keys += ("\"" + id + "\", ");
             }        
         } //for loop
-        //@TODO: Delete last coma & space from strings
+        /**********************************************************************************************************************************
+        @TODO: Delete last coma & space from strings
+        **********************************************************************************************************************************/
         json = regex_replace(json, regex("#V"), VER);
         json = regex_replace(json, regex("#l"), lra);
         json = regex_replace(json, regex("#b"), bra);
@@ -233,15 +241,15 @@ class SVGraph {
             nodes.push_back(node);
             b_nodes.push_back(node);
         }
-        /*
-        @TODO: Replace this function with interactive SVG, show RF range when clicked
+        /***********************************************************************************************************************************
+        TODO: Replace this function with interactive SVG, show RF range when clicked
         for (const auto &n: root["RF-on"]) {
             auto node = n.asString();
             nodes.push_back(node);
             rf_nodes.push_back(node);
         }
-
-        @TODO: Add routes with different collor arrows
+        
+        TODO: Add routes with different collor arrows
         for (const auto &arr: root["route"]) {
             auto a = arr[0].asString();
             auto b = arr[1].asString();
@@ -254,7 +262,7 @@ class SVGraph {
                 continue;
             }
         }
-        */
+        ***********************************************************************************************************************************/
         //Sensor parsing
         for (const auto& s : root["Temperature"]) {
             auto a = s.asString();
@@ -380,10 +388,10 @@ class SVGraph {
             << "' patternUnits='userSpaceOnUse'>" << "\n\t\t<path d='M " << GRID
             << " 0 L 0 0 0 " << GRID
             << "' stroke-dasharray='2 3' fill='none' stroke='gray'"
-            << " stroke-width='1px' opacity='50%' />\n\t</pattern>\n</defs>" << "\n<!-- GRID -->" << endl
+            << " stroke-width='1px' opacity='50%' />\n\t</pattern>\n</defs>" << "\n<!--********    GRID    ********-->" << endl
             << "<rect x='0' y='0' width='100%' height='100%' fill='url(#GRID)' />" << endl;
 
-        ssvg << "<!-- RF signal BLE-->" << endl;
+        ssvg << "<!--********    RF signal BLE    ********-->" << endl;
         for (const auto& node : b_nodes) {
             auto a = node;
             if (notNode(rf_nodes, a)) continue;
@@ -398,7 +406,7 @@ class SVGraph {
             ssvg << "</g>" << endl;
         }
 
-        ssvg << "<!-- RF signal LoRa -->" << endl;
+        ssvg << "<!--********    RF signal LoRa     ********-->" << endl;
         for (const auto& node : l_nodes) {
             auto a = node;
             if (notNode(rf_nodes, a)) continue;
@@ -413,7 +421,7 @@ class SVGraph {
             ssvg << "</g>" << endl;
         }
 
-        ssvg << "<!-- ARROWS LORA SIGNAL -->" << endl;
+        ssvg << "<!--********    ARROWS LORA SIGNAL    ********-->" << endl;
 
         for (int i = 0; i < lns; i++) {
             for (int j = i + 1; j < lns; j++) {
@@ -453,7 +461,7 @@ class SVGraph {
             }
         }
 
-        ssvg << "<!-- ARROWS LoRa-BLE SIGNAL -->" << endl;
+        ssvg << "<!--********    ARROWS LoRa-BLE SIGNAL    ********-->" << endl;
 
         for (int i = 0; i < bns; i++) {
             int count = 1;
@@ -506,7 +514,7 @@ class SVGraph {
             }
         }
 
-        ssvg << "<!-- ARROWS BLE SIGNAL -->" << endl;
+        ssvg << "<!--********    ARROWS BLE SIGNAL    ********-->" << endl;
 
         for (int i = 0; i < bns; i++) {
             for (int j = i + 1; j < bns; j++) {
@@ -548,7 +556,7 @@ class SVGraph {
             }
         }
 
-        ssvg << "<!-- Sensor paths -->" << endl;
+        ssvg << "<!--********    Sensor paths    ********-->" << endl;
 
         for (int i = 0; i < bns; i++) {
             auto a = b_nodes[i];
@@ -632,7 +640,7 @@ class SVGraph {
             }
         }
 
-        ssvg << "<!-- LoRa nodes -->" << endl;
+        ssvg << "<!--********    LoRa nodes    ********-->" << endl;
 
         for (const auto& node : l_nodes) {
             auto [x, y] = nodepos[node];
@@ -644,7 +652,7 @@ class SVGraph {
             ssvg << "</g>" << endl;
         }
 
-        ssvg << "<!-- BLE nodes -->" << endl;
+        ssvg << "<!--********    BLE nodes    ********-->" << endl;
 
         for (const auto& node : b_nodes) {
             auto [x, y] = nodepos[node];
@@ -690,7 +698,10 @@ class SVGraph {
                 TextLines lines;
                 string line;
                 while (getline(fi,line)) {
-                    if (line.length() > 6) { /// @todo: add remarks
+                    if (line.length() > 6) { 
+                        /**********************************************************************************************************************************
+                        TODO: add remarks
+                        **********************************************************************************************************************************/
                         lines.push_back(trim(line));
                     }
                 }
