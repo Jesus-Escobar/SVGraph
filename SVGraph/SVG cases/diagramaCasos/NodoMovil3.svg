@@ -1,0 +1,162 @@
+<?xml version='1.0'  encoding='UTF-8' standalone='no'?>
+<!DOCTYPE svg PUBLIC '-//W3C//DTD SVG 1.1//EN'
+	'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'>
+<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'
+version='' width='1101' height='901' viewBox='0 0 1101 901'>
+<style type='text/css'>
+	text {
+		font-family: Helvetica;
+		fill: #000;
+		font-size: 14;
+		text-anchor: middle;
+		font-weight: bold;
+	}
+	.lora {
+		stroke: #000;
+		stroke-width: 0px;
+	}
+	.ble {
+		fill: #36f;
+		stroke: #000;
+		stroke-width: 1px;
+	}
+	.sensor {
+		stroke: #000;
+		stroke-width: 0px;
+	}
+	.arrow {
+		fill: none;
+		stroke-width: 1px;
+	}
+</style>
+<defs>
+	<radialGradient id='rf'>
+		<stop offset='0.3' stop-color='#429' />
+			<stop offset='0.4' stop-color='#35a' />
+			<stop offset='0.5' stop-color='#27b' />
+			<stop offset='0.6' stop-color='#19c' />
+			<stop offset='0.7' stop-color='#0bd' />
+			<stop offset='0.8' stop-color='#0ce' />
+			<stop offset='0.9' stop-color='#0ef' />
+			<stop offset='1.0' stop-color='#fff' />
+	</radialGradient>
+	<radialGradient id='m3d'>
+			<stop offset='0.1' stop-color='#990' />
+			<stop offset='0.4' stop-color='#aa0' />
+			<stop offset='0.6' stop-color='#bb0' />
+			<stop offset='0.7' stop-color='#cc0' />
+			<stop offset='0.8' stop-color='#dd0' />
+			<stop offset='0.9' stop-color='#ee0' />
+			<stop offset='1.0' stop-color='#ff0' />
+	</radialGradient>
+	<pattern id='GRID' width='50' height='50' patternUnits='userSpaceOnUse'>
+		<path d='M 50 0 L 0 0 0 50' stroke-dasharray='2 3' fill='none' stroke='gray' stroke-width='1px' opacity='50%' />
+	</pattern>
+</defs>
+<!-- GRID -->
+<rect x='0' y='0' width='100%' height='100%' fill='url(#GRID)' />
+<!-- RF signal BLE-->
+<!-- RF signal LoRa -->
+<!-- ARROWS LORA SIGNAL -->
+<path class='arrow' d='M 221.213 578.787 L 278.787 521.213' stroke='#000'  />
+<path class='arrow' d='M 194.117 570.583 L 155.883 379.417' stroke='#000'  />
+<path class='arrow' d='M 224.962 616.641 L 325.038 683.359' stroke='#000'  />
+<path class='arrow' d='M 921.539 209.487 L 828.461 240.513' stroke='#000'  />
+<path class='arrow' d='M 950 230 L 950 370' stroke='#000'  />
+<path class='arrow' d='M 386.584 326.833 L 313.416 473.167' stroke='#000'  />
+<path class='arrow' d='M 426.833 286.584 L 573.167 213.416' stroke='#000'  />
+<path class='arrow' d='M 429.104 307.276 L 570.896 342.724' stroke='#000'  />
+<path class='arrow' d='M 370.583 305.883 L 179.417 344.117' stroke='#000'  />
+<path class='arrow' d='M 400 270 L 400 180' stroke='#000'  />
+<path class='arrow' d='M 326.833 513.416 L 473.167 586.584' stroke='#000'  />
+<path class='arrow' d='M 278.787 478.787 L 171.213 371.213' stroke='#000'  />
+<path class='arrow' d='M 307.276 529.104 L 342.724 670.896' stroke='#000'  />
+<path class='arrow' d='M 600 230 L 600 320' stroke='#000'  />
+<path class='arrow' d='M 570.896 192.724 L 429.104 157.276' stroke='#000'  />
+<path class='arrow' d='M 629.104 207.276 L 770.896 242.724' stroke='#000'  />
+<path class='arrow' d='M 776 482 L 624 368' stroke='#000'  />
+<path class='arrow' d='M 800 470 L 800 280' stroke='#000'  />
+<path class='arrow' d='M 824.961 483.359 L 925.039 416.641' stroke='#000'  />
+<path class='arrow' d='M 775.039 516.641 L 674.961 583.359' stroke='#000'  />
+<path class='arrow' d='M 821.213 521.213 L 878.787 578.787' stroke='#000'  />
+<path class='arrow' d='M 511.142 572.146 L 588.858 377.854' stroke='#000'  />
+<path class='arrow' d='M 530 600 L 620 600' stroke='#000'  />
+<path class='arrow' d='M 475.038 616.641 L 374.962 683.359' stroke='#000'  />
+<path class='arrow' d='M 578.787 328.787 L 421.213 171.213' stroke='#000'  />
+<path class='arrow' d='M 626.833 336.584 L 773.167 263.416' stroke='#000'  />
+<path class='arrow' d='M 605.883 379.417 L 644.117 570.583' stroke='#000'  />
+<path class='arrow' d='M 821.213 271.213 L 928.787 378.787' stroke='#000'  />
+<path class='arrow' d='M 942.724 429.104 L 907.276 570.896' stroke='#000'  />
+<path class='arrow' d='M 663.416 626.833 L 736.584 773.167' stroke='#000'  />
+<path class='arrow' d='M 680 600 L 870 600' stroke='#000'  />
+<path class='arrow' d='M 768 776 L 882 624' stroke='#000'  />
+<!-- ARROWS LoRa-BLE SIGNAL -->
+<!-- ARROWS BLE SIGNAL -->
+<!-- Sensor paths -->
+<!-- LoRa nodes -->
+<g id='node_15'>
+	<ellipse class='lora' rx='30' ry='30' cx='200' cy='600' fill='url(#m3d)' />
+	<text x='200' y='605' >15</text>
+</g>
+<g id='node_16'>
+	<ellipse class='lora' rx='30' ry='30' cx='950' cy='200' fill='url(#m3d)' />
+	<text x='950' y='205' >16</text>
+</g>
+<g id='node_1'>
+	<ellipse class='lora' rx='30' ry='30' cx='400' cy='300' fill='url(#m3d)' />
+	<text x='400' y='305' >1</text>
+</g>
+<g id='node_2'>
+	<ellipse class='lora' rx='30' ry='30' cx='300' cy='500' fill='url(#m3d)' />
+	<text x='300' y='505' >2</text>
+</g>
+<g id='node_3'>
+	<ellipse class='lora' rx='30' ry='30' cx='600' cy='200' fill='url(#m3d)' />
+	<text x='600' y='205' >3</text>
+</g>
+<g id='node_4'>
+	<ellipse class='lora' rx='30' ry='30' cx='800' cy='500' fill='url(#m3d)' />
+	<text x='800' y='505' >4</text>
+</g>
+<g id='node_5'>
+	<ellipse class='lora' rx='30' ry='30' cx='500' cy='600' fill='url(#m3d)' />
+	<text x='500' y='605' >5</text>
+</g>
+<g id='node_6'>
+	<ellipse class='lora' rx='30' ry='30' cx='600' cy='350' fill='url(#m3d)' />
+	<text x='600' y='355' >6</text>
+</g>
+<g id='node_7'>
+	<ellipse class='lora' rx='30' ry='30' cx='150' cy='350' fill='url(#m3d)' />
+	<text x='150' y='355' >7</text>
+</g>
+<g id='node_8'>
+	<ellipse class='lora' rx='30' ry='30' cx='400' cy='150' fill='url(#m3d)' />
+	<text x='400' y='155' >8</text>
+</g>
+<g id='node_9'>
+	<ellipse class='lora' rx='30' ry='30' cx='800' cy='250' fill='url(#m3d)' />
+	<text x='800' y='255' >9</text>
+</g>
+<g id='node_10'>
+	<ellipse class='lora' rx='30' ry='30' cx='950' cy='400' fill='url(#m3d)' />
+	<text x='950' y='405' >10</text>
+</g>
+<g id='node_11'>
+	<ellipse class='lora' rx='30' ry='30' cx='650' cy='600' fill='url(#m3d)' />
+	<text x='650' y='605' >11</text>
+</g>
+<g id='node_12'>
+	<ellipse class='lora' rx='30' ry='30' cx='350' cy='700' fill='url(#m3d)' />
+	<text x='350' y='705' >12</text>
+</g>
+<g id='node_13'>
+	<ellipse class='lora' rx='30' ry='30' cx='750' cy='800' fill='url(#m3d)' />
+	<text x='750' y='805' >13</text>
+</g>
+<g id='node_14'>
+	<ellipse class='lora' rx='30' ry='30' cx='900' cy='600' fill='url(#m3d)' />
+	<text x='900' y='605' >14</text>
+</g>
+<!-- BLE nodes -->
+</svg>
