@@ -3,7 +3,7 @@ C++ API to create node graphs (DAGs) for IoT peer-to-peer networks.
 
 This proyect was made to ease design and creation of directed acycled graphs (DAGs) for my master's degree project.
 
-The original ideaof using SVG, JSON & Regular expressions was sugested by my thesis advisor M.C. Alberto Pacheco. 
+The original idea of using SVG, JSON & Regular expressions was sugested by my thesis advisor M.C. Alberto Pacheco. 
 
 The development of this library started in mid September 2021, the first working version was uploaded October 21st 2021. Since then minor modifications were made to improove graphic stetics and show more information in a single graph. 
 In January 6 2022 version 1.2 was released, this had mayor modifications to make possible for the project to be used as a command line in windows/MacOS/Linux prompt and terminal. 

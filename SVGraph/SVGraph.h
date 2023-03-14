@@ -51,7 +51,7 @@ float   arrow_width = 1;
 float   lora_width = 0;
 float   ble_width = 1;
 string  font = "Helvetica";
-float   font_size = 14;
+float   font_size = 20;
 float   LoRa_range = 2.0;
 float   BLE_range = 1.0;
 float   width = 1;
@@ -101,6 +101,9 @@ class SVGraph {
     int       lns = 0; // nodes size for edge finding
     int       bns = 0; // nodes size for edge finding
 
+
+//###############################################################################
+
     void parse_graph(TextLines lines) {
         regex   range(R"((range|RANGE)\s+[l|L]+([\d\.])\s+[b|B]+([\d\.]))");
         regex   tokens(R"((bn|BN|ln|LN)\s+([\d]+)\s+(\[[\d.]+,[\d.]+\]))"); //.7.8 first-clause: id. info [dur]
@@ -119,17 +122,17 @@ class SVGraph {
         string keys = "";
 
         json = R"({
-"ver" : "#V",
-"LoRa-range"  : [ #l ],
-"BLE-range"   : [ #b ],
-"LoRa-nodes"  : [ #L ],
-"BLE-nodes"   : [ #B ],
-"pos"         : { #D },
-"Temperature" : [ #T ],
-"Humidity"    : [ #H ],
-"Proximity"   : [ #P ],
-"Keypad"      : [ #K ]
-})";
+        "ver" : "#V",
+        "LoRa-range"  : [ #l ],
+        "BLE-range"   : [ #b ],
+        "LoRa-nodes"  : [ #L ],
+        "BLE-nodes"   : [ #B ],
+        "pos"         : { #D },
+        "Temperature" : [ #T ],
+        "Humidity"    : [ #H ],
+        "Proximity"   : [ #P ],
+        "Keypad"      : [ #K ]
+        })";
 /***********************************************************************************************************************************
 TODO: Add fault to any node ' "Fault"       : [ #F ] ',
     This should cross out the node, it should not generate any arrows to or from the node, it should show its range in gray.
@@ -217,6 +220,8 @@ TODO: Add fault to any node ' "Fault"       : [ #F ] ',
         json = regex_replace(json, regex("#P"), prox);
         json = regex_replace(json, regex("#K"), keys);
     } //parse_graph
+    
+//###############################################################################
 
     void parse_json() {
         makeJSON(root, json);
@@ -349,7 +354,7 @@ TODO: Add fault to any node ' "Fault"       : [ #F ] ',
 
         ssvg << "<style type='text/css'>\n\ttext {\n\t\tfont-family: " << font
             << ";\n\t\tfill: " << text_fill << ";\n\t\tfont-size: " << font_size
-            << ";\n\t\ttext-anchor: middle;\n\t\tfont-weight: bold;\n\t}" << endl;
+            << "px;\n\t\ttext-anchor: middle;\n\t\tfont-weight: bold;\n\t}" << endl;
 
         ssvg << "\t.lora {\n\t\tstroke: " << stroke << ";\n\t\tstroke-width: "
             << lora_width << "px;\n\t}" << endl;
@@ -647,7 +652,7 @@ TODO: Add fault to any node ' "Fault"       : [ #F ] ',
             ssvg << "<g id='node_" << node << "'>" << endl;
             ssvg << "\t<ellipse class='lora' rx='" << RAD << "' ry='" << RAD << "' cx='"
                 << x * DIST << "' cy='" << y * DIST << "' fill='url(#m3d)' />" << endl;
-            ssvg << "\t<text x='" << (x * DIST) << "' y='" << (y * DIST + 5) << "' >"
+            ssvg << "\t<text x='" << (x * DIST) << "' y='" << (y * DIST + 10) << "' >"
                 << node << "</text>" << endl;
             ssvg << "</g>" << endl;
         }
@@ -659,7 +664,7 @@ TODO: Add fault to any node ' "Fault"       : [ #F ] ',
             ssvg << "<g id='node_" << node << "'>" << endl;
             ssvg << "\t<rect class='ble'" << " x='" << x * DIST - LEN / 2 << "' y='" << y * DIST - LEN / 2
                 << "' width='" << LEN << "' height='" << LEN << "' rx='5' ry='5' />" << endl;
-            ssvg << "\t<text x='" << (x * DIST) << "' y='" << (y * DIST + 5) << "' >"
+            ssvg << "\t<text x='" << (x * DIST) << "' y='" << (y * DIST + 10) << "' >"
                 << node << "</text>" << endl;
             ssvg << "</g>" << endl;
         }

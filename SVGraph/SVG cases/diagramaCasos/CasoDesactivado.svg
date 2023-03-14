@@ -62,36 +62,36 @@ version='' width='1101' height='901' viewBox='0 0 1101 901'>
 <!-- RF signal BLE-->
 <!-- RF signal LoRa -->
 <!-- ARROWS LORA SIGNAL -->
-<path class='highlight' d='M 226.833 213.416 L 373.167 286.584' stroke='#000'  /> 		<!-- A-1 -->
-<path class='arrow' d='M 190.513 228.46 L 159.487 321.539' stroke='#000'  />			<!-- A-7 -->
+<path class='arrow' d='M 226.833 213.416 L 373.167 286.584' stroke='#000'  /> 			<!-- A-1 -->
+<path class='highlight' d='M 190.513 228.46 L 159.487 321.539' stroke='#000'  />		<!-- A-7 -->
 <path class='arrow' d='M 229.104 192.724 L 370.896 157.276' stroke='#000'  />			<!-- A-8 -->
-<path class='arrow' d='M 970 800 L 780 800' stroke='#000'  />							<!-- 13-B -->
-<path class='highlight' d='M 986.584 773.167 L 913.416 626.833' stroke='#000'  />		<!-- 14-B -->
+<path class='highlight' d='M 970 800 L 780 800' stroke='#000'  />						<!-- 13-B -->
+<path class='arrow' d='M 986.584 773.167 L 913.416 626.833' stroke='#000'  />			<!-- 14-B -->
 <path class='arrow' d='M 386.584 326.833 L 313.416 473.167' stroke='#000'  />			<!-- 1-2 -->
 <path class='arrow' d='M 426.833 286.584 L 573.167 213.416' stroke='#000'  />			<!-- 1-3 -->
-<path class='highlight' d='M 429.104 307.276 L 570.896 342.724' stroke='#000'  />		<!-- 1-6 -->
+<!-- <path class='arrow' d='M 429.104 307.276 L 570.896 342.724' stroke='#000'  /> -->	<!-- 1-6 -->
 <path class='arrow' d='M 370.583 305.883 L 179.417 344.117' stroke='#000'  />			<!-- 1-7 -->
 <path class='arrow' d='M 400 270 L 400 180' stroke='#000'  />							<!-- 1-8 -->
-<path class='arrow' d='M 326.833 513.416 L 473.167 586.584' stroke='#000'  />			<!-- 2-5 -->
-<path class='arrow' d='M 278.787 478.787 L 171.213 371.213' stroke='#000'  />			<!-- 2-7 -->
+<path class='highlight' d='M 326.833 513.416 L 473.167 586.584' stroke='#000'  />		<!-- 2-5 -->
+<path class='highlight' d='M 278.787 478.787 L 171.213 371.213' stroke='#000'  />		<!-- 2-7 -->
 <path class='arrow' d='M 307.276 529.104 L 342.724 670.896' stroke='#000'  />			<!-- 2-12 -->
-<path class='arrow' d='M 600 230 L 600 320' stroke='#000'  />							<!-- 3-6 -->
+<!-- <path class='arrow' d='M 600 230 L 600 320' stroke='#000'  /> -->					<!-- 3-6 -->
 <path class='arrow' d='M 570.896 192.724 L 429.104 157.276' stroke='#000'  />			<!-- 3-8 -->
 <path class='arrow' d='M 629.104 207.276 L 770.896 242.724' stroke='#000'  />			<!-- 3-9 -->
-<path class='highlight' d='M 776 482 L 624 368' stroke='#000'  />						<!-- 4-6 -->
+<!-- <path class='arrow' d='M 776 482 L 624 368' stroke='#0F0'  />	-->					<!-- 4-6 -->
 <path class='arrow' d='M 800 470 L 800 280' stroke='#000'  />							<!-- 4-9 -->
 <path class='arrow' d='M 824.961 483.359 L 925.039 416.641' stroke='#000'  />			<!-- 4-10 -->
 <path class='arrow' d='M 775.039 516.641 L 674.961 583.359' stroke='#000'  />			<!-- 4-11 -->
-<path class='highlight' d='M 821.213 521.213 L 878.787 578.787' stroke='#000'  />		<!-- 4-14 -->
-<path class='arrow' d='M 511.142 572.146 L 588.858 377.854' stroke='#000'  />			<!-- 5-6 -->
-<path class='arrow' d='M 530 600 L 620 600' stroke='#000'  />							<!-- 5-11 -->
+<path class='arrow' d='M 821.213 521.213 L 878.787 578.787' stroke='#000'  />			<!-- 4-14 -->
+<!-- <path class='arrow' d='M 511.142 572.146 L 588.858 377.854' stroke='#000'  /> -->	<!-- 5-6 -->
+<path class='highlight' d='M 530 600 L 620 600' stroke='#000'  />						<!-- 5-11 -->
 <path class='arrow' d='M 475.038 616.641 L 374.962 683.359' stroke='#000'  />			<!-- 5-12 -->
-<path class='arrow' d='M 578.787 328.787 L 421.213 171.213' stroke='#000'  />			<!-- 6-8 -->
-<path class='arrow' d='M 626.833 336.584 L 773.167 263.416' stroke='#000'  />			<!-- 6-9 -->
-<path class='arrow' d='M 605.883 379.417 L 644.117 570.583' stroke='#000'  />			<!-- 6-11 -->
+<!-- <path class='arrow' d='M 578.787 328.787 L 421.213 171.213' stroke='#000'  /> -->	<!-- 6-8 -->
+<!-- <path class='arrow' d='M 626.833 336.584 L 773.167 263.416' stroke='#000'  /> -->	<!-- 6-9 -->
+<!-- <path class='arrow' d='M 605.883 379.417 L 644.117 570.583' stroke='#000'  /> -->	<!-- 6-11 -->
 <path class='arrow' d='M 821.213 271.213 L 928.787 378.787' stroke='#000'  />			<!-- 9-10 -->
 <path class='arrow' d='M 942.724 429.104 L 907.276 570.896' stroke='#000'  />			<!-- 10-14 -->
-<path class='arrow' d='M 663.416 626.833 L 736.584 773.167' stroke='#000'  />			<!-- 11-13 -->
+<path class='highlight' d='M 663.416 626.833 L 736.584 773.167' stroke='#000'  />		<!-- 11-13 -->
 <path class='arrow' d='M 680 600 L 870 600' stroke='#000'  />							<!-- 11-14 -->
 <path class='arrow' d='M 768 776 L 882 624' stroke='#000'  />							<!-- 13-14 -->
 <!-- ARROWS LoRa-BLE SIGNAL -->
@@ -127,7 +127,7 @@ version='' width='1101' height='901' viewBox='0 0 1101 901'>
 	<text x='500' y='605' >5</text>
 </g>
 <g id='node_6'>
-	<ellipse class='lora' rx='30' ry='30' cx='600' cy='350' fill='#ADB5BD' />
+	<ellipse class='lora' rx='30' ry='30' cx='600' cy='350' fill='#F8F9FA' />
 	<text x='600' y='355' >6</text>
 </g>
 <g id='node_7'>
