@@ -1,0 +1,15 @@
+{
+"ver" : "1.2",
+"LoRa-range"  : [ "3" ],
+"BLE-range"   : [ "2" ],
+"LoRa-nodes"  : [ "1", "2",  ],
+"BLE-nodes"   : [  ],
+"pos"         : { 
+    "1" : [1,1],
+    "2" : [3,1],
+ },
+"Temperature" : [  ],
+"Humidity"    : [  ],
+"Proximity"   : [  ],
+"Keypad"      : [  ]
+}
